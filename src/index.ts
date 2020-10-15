@@ -152,7 +152,8 @@ async function run() {
         ])
         await getItemQuantity(itemID);
     } catch (err) {
-        console.log(`Did you change your API key at '${path.resolve(__dirname, '../src/EDIT_ME.ts')}?'`);
+        console.error(err);
+        console.log(`\n\nDid you update the contents of '${path.resolve(__dirname, '../src/EDIT_ME.ts')}?'`);
     }
 }
 
