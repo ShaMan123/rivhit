@@ -1,0 +1,21 @@
+{
+  "name": "rivhit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib",
+  "scripts": {
+    "build": "node build.js",
+    "start": "npm run build && start cmd.exe @cmd /k tsc --watch && node ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "typescript": "^3.9.7",
+    "uninstall": "0.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.27",
+    "source-map-support": "^0.5.19"
+  }
+}
