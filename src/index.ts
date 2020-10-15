@@ -132,26 +132,30 @@ async function writeInventory(action: DOC_TYPES, customerID: number, items: Item
 }
 
 async function run() {
-    const itemID = ITEM_ID;
-    const customerID = CUSTOMER_ID;
-    await getDocTypes();
-    const groups = await getItemGroups();
-    const itemsByGroups = await Promise.all(groups.map(g => getItems(g.item_group_id)));
-    await getItemQuantity(itemID);
-    await getItemChildren(itemID);
-    await getDocuments(customerID, true);
-    await getDocuments(customerID);
-    await writeInventory(DOC_TYPES.inventory_in, customerID, [
-        {
-            item_id: itemID,
-            quantity: 50,
-            price_nis: 10.5,
-            description: 'מוצר שווה'
-        }
-    ])
-    await getItemQuantity(itemID);
+    try {
+        const itemID = ITEM_ID;
+        const customerID = CUSTOMER_ID;
+        await getDocTypes();
+        const groups = await getItemGroups();
+        const itemsByGroups = await Promise.all(groups.map(g => getItems(g.item_group_id)));
+        await getItemQuantity(itemID);
+        await getItemChildren(itemID);
+        await getDocuments(customerID, true);
+        await getDocuments(customerID);
+        await writeInventory(DOC_TYPES.inventory_in, customerID, [
+            {
+                item_id: itemID,
+                quantity: 50,
+                price_nis: 10.5,
+                description: 'מוצר שווה'
+            }
+        ])
+        await getItemQuantity(itemID);
+    } catch (err) {
+        console.log(`Did you change your API key at '${path.resolve(__dirname, '../src/EDIT_ME.ts')}?'`);
+    }
 }
 
-run()
+run();
 
 
