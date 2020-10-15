@@ -1,7 +1,9 @@
 # rivhit
 Node js example calling Rivhit API
 
-download and run:
+1. download or clone
+1. update `src/EDIT_ME.ts`
+1. run
 
 ```bash
 yarn --production=false
